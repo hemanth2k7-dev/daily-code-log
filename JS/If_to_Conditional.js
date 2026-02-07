@@ -5,7 +5,7 @@ if (a + b < 4) {
 } else {
   result = 'Over';
 }
-Rewrite this if using the conditional operator '?'*/
+Rewrite this 'if' using the conditional operator '?'*/
 let result;
 let a=10,b=-6;
 result=(a+b<4)?"Below":"Over";
