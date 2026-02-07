@@ -1,0 +1,140 @@
+<!DOCTYPE html> <!--Document type declaration-->
+<html>
+    <head>
+        <title>My site</title>
+        <link rel="icon" type="image/x-icon" href="Assets/H logo.JPG"><!--link is used generally to connect css or javascript
+        but here used to set a favicon i.e logo on top of website-->
+    </head>
+    <body style="background-color:whitesmoke;font-family: Georgia, 'Times New Roman', Times, serif;"><!--Style is used in open tags to give different styles-->
+        <!--background color is for bg custom and font family is for font custom-->
+        <h1 style="text-align: center;">Hi This is 
+            <abbr title="Hemanth">Mr.H</abbr><!--To abbreviate-->
+        </h1><!--Have styles from h1 to h6 as the height is decreased-->
+        <br><!--To leave a line-->
+        <hr><!--To draw a horizontal line-->
+        <img src="Assets/Hemanth.jpg" height="300px" 
+        alt="Image unavailable"
+        style="border: 5px dashed black;"
+        title="Hemanth kumar"
+        id="img"><!--img tag is to show an image-->
+        <!--Here you can adjust height and width and also note that you should save your web assects(like img,icons etc) in a folder 
+        inside the web folder-->
+        <!--Alt is an alternate text if no image is found-->
+        <!--id is a particular value which is unique to the particular tag & is usd for navigation-->
+        <!--border color can be customised with thickness of border-->
+        <br>
+        <b style="font-size: larger;"><i>I'm a Software Developer</i></b><!--Prints in a paragraph pattern-->
+        <!--b tag is for bold and i is for italic-->
+        <span>
+        <pre style="font-size: larger;">This is a testing <u>portfolio</u><!--To underline--> website
+to learn <mark>html</mark><!--To highlight-->
+        </pre><!--Prints everything as it is typed without any extra space-->
+        </span><!--Inline element container-->
+
+        <h4>Email me:-</h4>
+        <a href="mailto:hemanthkumar2k7@gmail.com">
+            <!--Mailto is used to mail a particular email ID-->
+            <img src="Assets/Gmail logo.JPG" height="20px">
+            <q>Mail</q>
+        </a>
+        
+        
+        <h2 style="color:blue">Below given link is for youtube</h2><!--This is for font kolor style-->
+        <a href="https://www.youtube.com/" target="_blank">
+            <!--Target is used to open in a particular target page-->
+            <img src="Assets/Youtube logo.JPG">
+            <q>Click here</q><!--Used to show quotes-->
+        </a><!--To show link-->
+        
+        <div><!--Block element container-->
+        <h4>My Bucket list</h4>
+        <ul style="list-style-type:square;"><!--Unordered list-->
+        <li><del>Start learning html</del></li><!--To write and strike a text & l is list element-->
+        <li><del>Get above 90 percentile in KEAM</del></li>
+        <li><ins>Get admission in CET with:-</ins>
+        <ol><!--Nested under a list-->
+            <li>Rank under 1000</li>
+            <li>above 90% in XII</li>
+            <li>Rounds of counselling</li>
+        </ol>
+        </li><!--To insert a text and underline-->
+        </ul>
+        </div>
+        
+        <h4>Subjects in CS stream</h4>
+        <ol><!--Ordered list-->
+            <li>MAT</li>
+            <li>CHEM</li>
+            <li>PHY</li>
+            <li>ENG</li>
+            <li>CS</li>
+        </ol>
+
+
+
+        <table style="border: solid; text-align: center;" width="300px"><!--Used to create a table-->
+            <caption style="font-style: italic;">Educational Qualification</caption><!--Used to create a centralised heading on top of table-->
+            <thead><!--Used to create heading in table-->
+                <tr><!--Used to create a row-->
+                    <th>Class</th><!--create header for each row-->
+                    <!--Colspan is for making common header for no of columns given,here it is 2-->
+                    <th >Exam type</th>
+                    <th>Course</th>
+                    <th>Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>X</td><!--Used to fill actual data -->
+                    <td>CBSE board</td>
+                    <!--rowspan is for making common row value for no of rows given,here it is 2-->
+                    <td>Basic</td>
+                    <td>85%</td>
+                </tr>
+                <tr>
+                    <td>XII</td>
+                    <td>CBSE board</td>
+                    <td>CS</td>
+                    <td>95%</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    <a href="#img">Image</a><!--The navigation used as told above in id-->
+    <br><br>
+    <iframe src="Iframe sam.html" height="60px"></iframe><!--used for pasting another website in this website-->
+    <h4>Pls fill the below form:-</h4>
+<fieldset><!--Used to draw a box surrounding this form-->
+    <legend>Sign Up</legend><!--Heading for the fieldset-->
+        <form action="index.html"><!--Used to get data in form type and action is done after submission-->
+            <label>Your name</label><!--label is used for labelling which data we want-->
+            <input type="text" required placeholder="Firstname"><!--Used to get input-->
+            <!--type is for datatype of data required,placeholder is for showing a placeholder &
+            required shows that the field is required-->
+            <br><br>
+            <label>Password</label>
+            <input type="password" required placeholder="Min 8 chars required">
+            <br><br>
+            <label>DOB</label>
+            <input type="date">
+            <br><br>
+            <label>GENDER:-</label>
+            <input type="radio" name="gender"><!--name here is for proper working of radio button-->
+            <label>Male</label>
+            <input type="radio" name="gender">
+            <label>Female</label>
+            <input type="radio" name="gender">
+            <label>Others</label>
+            <br><br>
+            <input type="checkbox">
+            <label>Agree to T&C</label>
+            <br><br>
+            <input type="submit">
+        </form>
+</fieldset>
+    <br>
+    <button>Click</button><!--To create a button-->
+    </body>
+
+</html>
+<!--This is how to write Comment-->
