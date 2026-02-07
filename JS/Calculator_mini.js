@@ -1,4 +1,4 @@
-/*Mini caculator for addition,subtraction,multiplication and division*/
+/*Mini calculator for addition,subtraction,multiplication and division*/
 let a = Number(prompt("Enter first number"));
 let b = Number(prompt("Enter second number"));
 let op = prompt("Enter Operation(+,-,*,/)");
