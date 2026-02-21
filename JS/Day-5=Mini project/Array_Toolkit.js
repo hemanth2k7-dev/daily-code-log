@@ -71,7 +71,7 @@ function rotateArr(arr, dir, n) {
   console.log(arr);
 }
 
-let exit;
+let exit="no";
 do {
   alert("Array Toolkit");
   alert("Creating an array");
