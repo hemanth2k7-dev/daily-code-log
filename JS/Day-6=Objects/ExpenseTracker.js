@@ -9,64 +9,89 @@ const addExpense = (array) => {
 
 function showExpenses(array) {
   console.log("AMOUNT".padEnd(10), "CATEGORY".padEnd(15), "NOTE");
-  for (let i = 0; i < array.length; i++) {
-    const expense = array[i];
+  array.forEach((expense) =>
     console.log(
       String(expense.amount).padEnd(10),
       expense.category.padEnd(15), //padEnd(length to be taken by string,add string till that length),eg:str.padEnd(5,"-")
       expense.note,
-    );
-  }
+    ),
+  );
 }
 
 function getHighestExpense(array) {
   let maxExpense = 0,
     max;
-  for (let i = 0; i < array.length; i++) {
-    const expense = array[i];
-    if (expense.amount > maxExpense) {
-      maxExpense = expense.amount;
-      max = expense;
-    }
+  if (array.length === 0) {
+    console.log("No expenses yet");
+    return;
   }
+  maxExpense = array.reduce(
+    (maxExpense, item) =>
+      item.amount > maxExpense ? (maxExpense = item.amount) : maxExpense,
+    0,
+  );
+  max = array.filter((item) => item.amount == maxExpense);
   console.log(
-    `Highest Expense is for ${max.note} ${max.category} = ${max.amount}/-`,
+    `Highest Expense is for ${max[0].note} ${max[0].category} = ${max[0].amount}/-`,
   );
 }
 
 function getTotalExpense(array) {
-  let totalExpense = 0;
-  for (let i = 0; i < array.length; i++) {
-    const expense = array[i];
-    totalExpense += expense.amount;
-  }
+  let totalExpense = array.reduce((total, item) => (total += item.amount), 0);
   console.log(`Total Expense = ${totalExpense}/-`);
 }
 
 function filterbyCategory(array, cat) {
-  let total = 0;
-  console.log("AMOUNT".padEnd(10), "CATEGORY".padEnd(15), "NOTE");
-  for (let i = 0; i < array.length; i++) {
-    const expense = array[i];
-    if (cat.toLowerCase() == expense.category.toLowerCase()) {
-      console.log(
-        String(expense.amount).padEnd(10),
-        expense.category.padEnd(15),
-        expense.note,
-      );
-      total += expense.amount;
-    }
+  const filtered = array.filter((exp) => exp.category === cat.toLowerCase());
+
+  if (filtered.length === 0) {
+    console.log("No expenses in this category");
+    return;
   }
+
+  console.log("AMOUNT".padEnd(10), "CATEGORY".padEnd(15), "NOTE");
+
+  filtered.forEach((exp) =>
+    console.log(
+      String(exp.amount).padEnd(10),
+      exp.category.padEnd(15),
+      exp.note,
+    ),
+  );
+
+  const total = filtered.reduce((sum, exp) => sum + exp.amount, 0);
+
   console.log(`Expense for ${cat} in Total = ${total}/-`);
 }
 
+function categorySummary(array) {
+  let categoryFiltered = [];
+  array.forEach((expense) => {
+    const existing = categoryFiltered.find(
+      (exp) => exp.category === expense.category,
+    );
+    if (existing) {
+      existing.amount += expense.amount;
+    } else {
+      categoryFiltered.push({
+        amount: expense.amount,
+        category: expense.category,
+      });
+    }
+  });
+  console.log("CATEGORY WISE SUMMARY");
+  categoryFiltered.forEach((exp) => {
+    console.log(`${exp.category} -> ${exp.amount}`);
+  });
+}
+
 //Main part of Program
-let exit="no";
+let exit = "no";
 let expenses = [];
 alert("Expense Tracker");
 do {
   alert(
-    "Operations you can perform:-\n1.Add expense\n2.Show expenses\n3.Filter by Category and show total in that category\n4.Show total expense\n5.Show Highest Expense\n6.Exit",
+    "Operations you can perform:-\n1.Add expense\n2.Show expenses\n3.Filter by Category and show total in that category\n4.Show total expense\n5.Show Highest Expense\n6.Show category wise summary\n7.Exit",
   );
   let ch = Number(prompt("Enter your choice of Opertion"));
   switch (ch) {
@@ -87,6 +112,9 @@ do {
       getHighestExpense(expenses);
       break;
     case 6:
+      categorySummary(expenses);
+      break;
+    case 7:
       exit = "yes";
       break;
   }

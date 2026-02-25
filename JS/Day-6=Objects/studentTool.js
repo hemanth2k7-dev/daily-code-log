@@ -23,23 +23,12 @@ function deleteTask(array) {
 
 function showAll(array) {
   console.log("TASK".padEnd(10), "DONE");
-  for (let i = 0; i < array.length; i++) {
-    const task = array[i];
-    console.log(task.Task_title.padEnd(10), task.Done);
-  }
+  array.map((task) => console.log(task.Task_title.padEnd(10), task.Done));
 }
 
 function showDone_vs_Pending(array) {
-  let done = [],
-    pending = [];
-  for (let i = 0; i < array.length; i++) {
-    const task = array[i];
-    if (task.Done == true) {
-      done.push(task);
-    } else {
-      pending.push(task);
-    }
-  }
+  let done = array.filter((task) => task.Done == true),
+    pending = array.filter((task) => task.Done == false);
   console.log("TASKS DONE \t\t\t PENDING");
   const maxLen = Math.max(done.length, pending.length);
   for (let i = 0; i < maxLen; i++) {
