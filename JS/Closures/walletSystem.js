@@ -13,7 +13,7 @@ function createWallet(savedPin) {
           time: new Date().toLocaleString(),
         });
       } else {
-        alert("Invalid amount");
+        alert("Enter a valid amount");
       }
     },
     spend: (amount) => {
@@ -79,7 +79,7 @@ do {
         let pin = Number(prompt("Enter your pin"));
         if (newWallet.authorize(pin)) {
           let amount = Number(prompt("Enter the amount"));
-          newWallet.add(amount);
+          !isNaN(amount)?newWallet.add(amount):alert("Enter a valid amount");
         } else {
           alert("Wrong pin!");
         }
@@ -92,7 +92,7 @@ do {
         let pin = Number(prompt("Enter your pin"));
         if (newWallet.authorize(pin)) {
           let amount = Number(prompt("Enter the amount"));
-          newWallet.spend(amount);
+          !isNaN(amount)?newWallet.spend(amount):alert("Enter a valid amount");
         } else {
           alert("Wrong pin!");
         }
