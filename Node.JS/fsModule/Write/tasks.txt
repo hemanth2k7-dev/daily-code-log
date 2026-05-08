@@ -1,0 +1,3 @@
+1.Do workout
+2.Watch today's market
+3.Learn JS
