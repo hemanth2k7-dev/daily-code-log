@@ -42,8 +42,9 @@ class Task {
   static async loadTasks() {
     return await fs.readFile(TASKS_FILE, "utf8");
   }
-  static async clear(){
-    await fs.writeFile(TASKS_FILE,"","utf8");
+  static async clear() {
+    const header = formatRow("TITLE", "DESCRIPTION", "COMPLETED");
+    await fs.writeFile(TASKS_FILE, header, "utf8");
   }
 }
 function askQuestion(query) {
@@ -92,7 +93,7 @@ async function main() {
           tasks!=""?console.log(tasks):console.log("No tasks inside");
           break;
         case 3:
-            Task.clear();
+            await Task.clear();
             console.log("Cleared Tasks Successfully");
             break;
         case 4:
@@ -102,7 +103,7 @@ async function main() {
           console.log("Invalid choice");
           break;
       }
-    } while (ch !== 0);
+    } while (true);
   } catch (err) {
     console.error("Error:", err.message);
   }
